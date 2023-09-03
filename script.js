@@ -3,6 +3,7 @@ const button = document.querySelector(".btn");
 const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
 
 let getJoke = () => {
+    jokes.classList.remove("fade");
     fetch(url)
     .then(response => {
 
@@ -14,18 +15,22 @@ let getJoke = () => {
 
         return response.json();
     })
+    
 
     .then(data => {
+        jokes.classList.add("fade");
         if(data.joke){
             jokes.textContent = `${data.joke}`
         } else {
             alert("No joke found in the response.");
         }
     })
+    
 
     .catch(error =>{
         console.error(`Error fetching the json`);
-    });  
+    });
+    
 }
 getJoke();
 

@@ -71,7 +71,14 @@ span{
     color: #080821;
     font-weight: 600;
     padding-bottom: 20px;
+    opacity: 0;
 }
+
+.fade{
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
 
 .btn{
     height: 45px;
